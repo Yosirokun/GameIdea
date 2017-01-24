@@ -9,6 +9,8 @@ import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.PixelFormat;
 
+import UntitledGame.MainGame;
+
 public class DisplayManager {
 
 	private static final int WIDTH = 1280;
@@ -41,7 +43,7 @@ public class DisplayManager {
 
 		while(Keyboard.next()){
 			if(Keyboard.getEventKeyState()){
-				
+
 				if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 					closeDisplay();
 				}
@@ -60,6 +62,8 @@ public class DisplayManager {
 	}
 
 	public static void closeDisplay() {
+
+		MainGame.loader1.cleanUp();
 
 		Display.destroy();
 		System.exit(0);
